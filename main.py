@@ -20,7 +20,7 @@ THRESHOLD = 0.5
 max_force = 0.0
 history = []
 accel = sensor.get_values()
-#btn = Pin(28, Pin.IN, Pin.PULL_UP)
+btn = Pin(28, Pin.IN, Pin.PULL_UP)
 
 prev_x = 0
 prev_y = 0
@@ -52,15 +52,15 @@ print("-" * 30)
 update_screen(0.0, 0.0, [])
 
 while True:
-  #if btn.value() == 0:
-   #   max_force = 0.0
-    #  history = []
-    #  print("\n[SYSTEM] Records cleared by user.")
-    #  update_screen(0.0, 0.0, [])
+  if btn.value() == 0:
+      max_force = 0.0
+      history = []
+      print("\n[SYSTEM] Records cleared by user.")
+      update_screen(0.0, 0.0, [])
       #greenLED.value(1)
       #time.sleep(10)
       #greenLED.value(0)
-    #  time.sleep(0.3)
+      time.sleep(0.3)
     
   accel = sensor.get_values()
   
